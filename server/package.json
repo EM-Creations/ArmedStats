@@ -1,0 +1,20 @@
+{
+  "name": "armedstats-server",
+  "version": "0.1.0",
+  "description": "Armed Stats server, implemented in Node.js.",
+  "main": "app.js",
+  "dependencies": {
+    "@hapi/hapi": "^19.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Edward McKnight",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/EM-Creations/ArmedStats.git"
+  }
+}

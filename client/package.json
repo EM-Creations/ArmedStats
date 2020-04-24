@@ -1,0 +1,19 @@
+{
+  "name": "armedstats-client",
+  "version": "0.1.0",
+  "description": "Armed Stats client, implemented in Angular.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/EM-Creations/ArmedStats.git"
+  },
+  "author": "Edward McKnight",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EM-Creations/ArmedStats/issues"
+  },
+  "homepage": "https://github.com/EM-Creations/ArmedStats#readme"
+}
