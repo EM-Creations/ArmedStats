@@ -1,0 +1,18 @@
+<div>
+  <div>
+    <h2>Search</h2>
+    <input [(ngModel)]="searchText">
+  </div>
+  <table *ngIf="servers && servers.length">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>IP</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let server of filteredServers">
+      <td>{{ server.name }}</td>
+      <td>{{ server.ip }}</td>
+    </tr>
+  </table>
+</div>
