@@ -2,9 +2,12 @@
   "name": "armedstats-server",
   "version": "0.1.0",
   "description": "Armed Stats server, implemented in Node.js.",
-  "main": "app.js",
+  "main": "src/index.js",
   "dependencies": {
-    "@hapi/hapi": "^19.1.1"
+    "@hapi/hapi": "^19.1.1",
+    "hapi-sequelizejs": "^4.0.0",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.7"
   },
   "devDependencies": {},
   "scripts": {
