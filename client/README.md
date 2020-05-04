@@ -1,6 +1,8 @@
-# ArmedstatsClient
+# ArmedStats Client
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.3.
+
+![Made with Angular](https://img.shields.io/badge/Made%20With-Angular-red?style=for-the-badge)
 
 ## Development server
 

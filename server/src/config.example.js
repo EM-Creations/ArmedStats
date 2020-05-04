@@ -8,3 +8,10 @@ exports.DB = {
     'username': 'USERNAME HERE',
     'password': 'PASSWORD HERE'
 };
+
+exports.USERS = {
+  client: {
+    username: 'client',
+    password: '$2b$10$vHOuvRCzDwGpWZtHn.lkbu0GtODABiboYeOWid707rqtS5DVon8lm' // Bcrypt hash for 'ArmedStatsDefault'
+  }
+};
