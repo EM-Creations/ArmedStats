@@ -1,8 +1,31 @@
 'use strict';
 
 const Sequelize = require('sequelize');
+const Bcrypt = require('bcrypt');
 const Hapi = require('@hapi/hapi');
 const config = require('./config.js');
+
+const validate = async (request, username, password) => {
+  const user = config.USERS[username];
+  var result = {
+    credentials: null,
+    isValid: false
+  };
+
+  if (user) {
+    const isValid = await Bcrypt.compare(password, user.password);
+    const credentials = {
+      id: user.id,
+      username: user.username
+    };
+    result = {
+      isValid,
+      credentials
+    };
+  }
+
+  return result;
+};
 
 const init = async () => {
 
@@ -11,6 +34,7 @@ const init = async () => {
         host: 'localhost'
     });
 
+    await server.register(require('@hapi/basic'));
     await server.register([
     {
         plugin: require('hapi-sequelizejs'),
@@ -27,11 +51,15 @@ const init = async () => {
     },
     ]);
 
+    server.auth.strategy('simple', 'basic', { validate });
+
     server.route({
         method: 'GET',
         path: '/',
+        options: {
+          auth: 'simple'
+        },
         handler: (request, h) => {
-
             return 'Hello World!';
         }
     });
