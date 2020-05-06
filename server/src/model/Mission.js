@@ -1,5 +1,6 @@
 /**
  * Mission model.
+* @module model/Mission
  * @author Edward McKnight (EM-Creations.co.uk)
  */
 module.exports = function(sequelize, DataTypes) {
