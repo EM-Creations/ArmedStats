@@ -4,7 +4,19 @@ const Sequelize = require('sequelize');
 const Bcrypt = require('bcrypt');
 const Hapi = require('@hapi/hapi');
 const config = require('./config.js');
+const cron = require('node-cron');
+const ServerQuery = require('./lib/ServerQuery.js');
 
+// SCHEDULING OF SERVER CHECKING
+cron.schedule("* * * * *", function() {
+  console.log("Running server check every minute..");
+  ServerQuery.build("136.243.171.145", 2302).then((serverQuery) => {
+    console.log(serverQuery.getCurrentPlayers() + "/" + serverQuery.getMaxPlayers());
+  });
+});
+// END OF SCHEDULING OF SERVER CHECKING
+
+// REST API
 const validate = async (request, username, password) => {
   const user = config.USERS[username];
   var result = {
@@ -60,13 +72,17 @@ const init = async () => {
           auth: 'simple'
         },
         handler: (request, h) => {
-            return 'Hello World!';
+            return "Hello world!";
+            // return ServerQuery.build("136.243.171.145", 2302).then((serverQuery) => {
+            //   return serverQuery.getCurrentPlayers() + "/" + serverQuery.getMaxPlayers();
+            // });
         }
     });
 
     await server.start();
     console.log('Server running on %s', server.info.uri);
 };
+// END OF REST API
 
 process.on('unhandledRejection', (err) => {
 

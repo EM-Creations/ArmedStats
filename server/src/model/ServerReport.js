@@ -1,3 +1,8 @@
+/**
+ * ServerReport model.
+ * @module model/ServerReport
+ * @author Edward McKnight (EM-Creations.co.uk)
+ */
 module.exports = function(sequelize, DataTypes) {
     const ServerReport = sequelize.define('ServerReport', {
         ping: DataTypes.INTEGER.UNSIGNED,
