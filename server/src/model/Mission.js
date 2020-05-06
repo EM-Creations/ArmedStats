@@ -1,3 +1,7 @@
+/**
+ * Mission model.
+ * @author Edward McKnight (EM-Creations.co.uk)
+ */
 module.exports = function(sequelize, DataTypes) {
     const Mission = sequelize.define('Mission', {
         name: DataTypes.STRING,

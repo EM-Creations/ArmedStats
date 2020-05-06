@@ -1,3 +1,7 @@
+/**
+ * Author model.
+ * @author Edward McKnight (EM-Creations.co.uk)
+ */
 module.exports = function(sequelize, DataTypes) {
     const Author = sequelize.define('Author', {
         name: DataTypes.STRING,

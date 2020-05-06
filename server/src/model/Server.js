@@ -1,3 +1,7 @@
+/**
+ * Server model.
+ * @author Edward McKnight (EM-Creations.co.uk)
+ */
 module.exports = function(sequelize, DataTypes) {
     const Server = sequelize.define('Server', {
         name: DataTypes.STRING,

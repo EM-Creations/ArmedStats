@@ -2,6 +2,13 @@
 
 const Gamedig = require('gamedig');
 
+/**
+ * @class ServerQuery representing a query of a game server.
+ * @author Edward McKnight (EM-Creations.co.uk)
+ * @example <caption>ServerQuery.build("127.0.0.1", 2302).then((serverQuery) => {
+ *  console.log(serverQuery.getCurrentPlayers() + "/" + serverQuery.getMaxPlayers());
+ * });</caption>
+ */
 module.exports = class ServerQuery {
   ip = "";
   port = 0;
