@@ -80,6 +80,42 @@ const init = async () => {
         handler: ServerController.list
     });
 
+    server.route({
+        method: 'GET',
+        path: apiVersion + '/servers/{id}',
+        options: {
+          auth: 'simple'
+        },
+        handler: ServerController.get
+    });
+
+    server.route({
+        method: 'POST',
+        path: apiVersion + '/servers',
+        options: {
+          auth: 'simple'
+        },
+        handler: ServerController.create
+    });
+
+    server.route({
+        method: 'PUT',
+        path: apiVersion + '/servers/{id}',
+        options: {
+          auth: 'simple'
+        },
+        handler: ServerController.update
+    });
+
+    server.route({
+        method: 'DELETE',
+        path: apiVersion + '/servers/{id}',
+        options: {
+          auth: 'simple'
+        },
+        handler: ServerController.remove
+    });
+
     await server.start();
     console.log('Server running on %s', server.info.uri);
 
