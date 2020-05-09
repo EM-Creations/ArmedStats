@@ -7,9 +7,7 @@ const Hapi = require('@hapi/hapi');
 const config = require('./config.js');
 const cron = require('node-cron');
 const ServerQuery = require('./lib/ServerQuery.js');
-const ServerController = require('./controller/Server.js');
 
-const apiVersion = "/v1";
 
 // REST API
 const validate = async (request, username, password) => {
@@ -60,61 +58,8 @@ const init = async () => {
 
     server.auth.strategy('simple', 'basic', { validate });
 
-    server.route({
-        method: 'GET',
-        path: '/',
-        options: {
-          auth: 'simple'
-        },
-        handler: (request, h) => {
-            return "Hello world!";
-        }
-    });
-
-    server.route({
-        method: 'GET',
-        path: apiVersion + '/servers',
-        options: {
-          auth: 'simple'
-        },
-        handler: ServerController.list
-    });
-
-    server.route({
-        method: 'GET',
-        path: apiVersion + '/servers/{id}',
-        options: {
-          auth: 'simple'
-        },
-        handler: ServerController.get
-    });
-
-    server.route({
-        method: 'POST',
-        path: apiVersion + '/servers',
-        options: {
-          auth: 'simple'
-        },
-        handler: ServerController.create
-    });
-
-    server.route({
-        method: 'PUT',
-        path: apiVersion + '/servers/{id}',
-        options: {
-          auth: 'simple'
-        },
-        handler: ServerController.update
-    });
-
-    server.route({
-        method: 'DELETE',
-        path: apiVersion + '/servers/{id}',
-        options: {
-          auth: 'simple'
-        },
-        handler: ServerController.remove
-    });
+    var routes = require('./routes');
+    server.route(routes);
 
     await server.start();
     console.log('Server running on %s', server.info.uri);

@@ -6,12 +6,42 @@ const HapiSequelize = require('hapi-sequelizejs');
  */
 
 /**
- * @class ServerUtils
+ * getServerModel
  * @author Edward McKnight (EM-Creations.co.uk)
  * @returns A Server model object for the current server.
  * @example <caption>ServerUtils.getServerModel()</caption>
  */
 exports.getServerModel = function() {
-  const db = HapiSequelize.instances.getDb();
-  return db.getModel("Server");
+  return this.getModel("Server");
+}
+
+/**
+ * getAuthorModel
+ * @author Edward McKnight (EM-Creations.co.uk)
+ * @returns An Author model object for the current server.
+ * @example <caption>ServerUtils.getAuthorModel()</caption>
+ */
+exports.getAuthorModel = function() {
+  return this.getModel("Author");
+}
+
+/**
+ * getModel
+ * @author Edward McKnight (EM-Creations.co.uk)
+ * @params model Name of the model.
+ * @returns A model for the current server.
+ * @example <caption>ServerUtils.getDB()</caption>
+ */
+exports.getModel = function (model) {
+  return this.getDB().getModel(model);
+}
+
+/**
+ * getDB
+ * @author Edward McKnight (EM-Creations.co.uk)
+ * @returns A database instance object for the current server.
+ * @example <caption>ServerUtils.getDB()</caption>
+ */
+exports.getDB = function() {
+  return HapiSequelize.instances.getDb();
 }
