@@ -5,8 +5,9 @@ const HapiSequelize = require('hapi-sequelizejs');
 const Bcrypt = require('bcrypt');
 const Hapi = require('@hapi/hapi');
 const config = require('./config.js');
-const cron = require('node-cron');
-const ServerQuery = require('./lib/ServerQuery.js');
+var CronJob = require('cron').CronJob;
+const ServerReporter = require('./lib/ServerReporter.js');
+var serverReporter = new ServerReporter();
 
 
 // REST API
@@ -65,14 +66,8 @@ const init = async () => {
     console.log('Server running on %s', server.info.uri);
 
     // SCHEDULING OF SERVER CHECKING
-    cron.schedule("* * * * *", function() {
-      console.log("Running server check every minute..");
-      ServerQuery.build("136.243.171.145", 2302).then((serverQuery) => {
-        const db = HapiSequelize.instances.getDb();
-        console.log(serverQuery.getCurrentPlayers() + "/" + serverQuery.getMaxPlayers());
-      });
-    });
-    // END OF SCHEDULING OF SERVER CHECKING
+    const job = new CronJob("* * * * *", serverReporter.runReports);
+    job.start();
 };
 // END OF REST API
 

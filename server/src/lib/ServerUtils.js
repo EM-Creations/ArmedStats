@@ -26,6 +26,16 @@ exports.getAuthorModel = function() {
 }
 
 /**
+ * getServerReportModel
+ * @author Edward McKnight (EM-Creations.co.uk)
+ * @returns A ServerReport model object for the current server.
+ * @example <caption>ServerUtils.getServerReportModel()</caption>
+ */
+exports.getServerReportModel = function() {
+  return this.getModel("ServerReport");
+}
+
+/**
  * getModel
  * @author Edward McKnight (EM-Creations.co.uk)
  * @params model Name of the model.

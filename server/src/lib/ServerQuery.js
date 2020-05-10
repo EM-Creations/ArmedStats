@@ -42,4 +42,8 @@ module.exports = class ServerQuery {
     return this.serverState.maxplayers;
   }
 
+  getPing() {
+    return this.serverState.ping;
+  }
+
 }
