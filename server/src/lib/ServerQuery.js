@@ -42,4 +42,16 @@ module.exports = class ServerQuery {
     return this.serverState.maxplayers;
   }
 
+  getPing() {
+    return this.serverState.ping;
+  }
+
+  getMap() {
+    return this.serverState.map.trim();
+  }
+
+  getMission() {
+    return this.serverState.raw.game.trim();
+  }
+
 }

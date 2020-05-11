@@ -26,6 +26,36 @@ exports.getAuthorModel = function() {
 }
 
 /**
+ * getServerReportModel
+ * @author Edward McKnight (EM-Creations.co.uk)
+ * @returns A ServerReport model object for the current server.
+ * @example <caption>ServerUtils.getServerReportModel()</caption>
+ */
+exports.getServerReportModel = function() {
+  return this.getModel("ServerReport");
+}
+
+/**
+ * getMapModel
+ * @author Edward McKnight (EM-Creations.co.uk)
+ * @returns A Map model object for the current server.
+ * @example <caption>ServerUtils.getMapModel()</caption>
+ */
+exports.getMapModel = function() {
+  return this.getModel("Map");
+}
+
+/**
+ * getMissionModel
+ * @author Edward McKnight (EM-Creations.co.uk)
+ * @returns A Mission model object for the current server.
+ * @example <caption>ServerUtils.getMissionModel()</caption>
+ */
+exports.getMissionModel = function() {
+  return this.getModel("Mission");
+}
+
+/**
  * getModel
  * @author Edward McKnight (EM-Creations.co.uk)
  * @params model Name of the model.
