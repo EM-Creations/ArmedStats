@@ -50,4 +50,8 @@ module.exports = class ServerQuery {
     return this.serverState.map.trim();
   }
 
+  getMission() {
+    return this.serverState.raw.game.trim();
+  }
+
 }

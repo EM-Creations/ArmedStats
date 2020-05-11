@@ -46,6 +46,16 @@ exports.getMapModel = function() {
 }
 
 /**
+ * getMissionModel
+ * @author Edward McKnight (EM-Creations.co.uk)
+ * @returns A Mission model object for the current server.
+ * @example <caption>ServerUtils.getMissionModel()</caption>
+ */
+exports.getMissionModel = function() {
+  return this.getModel("Mission");
+}
+
+/**
  * getModel
  * @author Edward McKnight (EM-Creations.co.uk)
  * @params model Name of the model.

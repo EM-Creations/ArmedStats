@@ -11,7 +11,6 @@ module.exports = function(sequelize, DataTypes) {
     });
 
     Server.associate = function(models) {
-        models.Server.hasMany(models.Mission);
         models.Server.hasMany(models.ServerReport);
     };
 
