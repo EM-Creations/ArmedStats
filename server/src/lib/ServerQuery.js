@@ -46,4 +46,8 @@ module.exports = class ServerQuery {
     return this.serverState.ping;
   }
 
+  getMap() {
+    return this.serverState.map.trim();
+  }
+
 }

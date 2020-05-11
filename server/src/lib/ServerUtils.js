@@ -36,6 +36,16 @@ exports.getServerReportModel = function() {
 }
 
 /**
+ * getMapModel
+ * @author Edward McKnight (EM-Creations.co.uk)
+ * @returns A Map model object for the current server.
+ * @example <caption>ServerUtils.getMapModel()</caption>
+ */
+exports.getMapModel = function() {
+  return this.getModel("Map");
+}
+
+/**
  * getModel
  * @author Edward McKnight (EM-Creations.co.uk)
  * @params model Name of the model.

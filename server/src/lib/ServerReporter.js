@@ -23,11 +23,21 @@ module.exports = class ServerReporter {
         console.log("Querying " + servers.count + " game servers..");
 
         servers.rows.forEach(server => {
-          ServerQuery.build(server.ip, server.port).then((serverQuery) => {
+          ServerQuery.build(server.ip, server.port).then(async function(serverQuery) {
             console.log(server.name + ":");
             console.log(serverQuery.getCurrentPlayers() + "/" + serverQuery.getMaxPlayers());
 
-            // TODO: Determine if the current map and mission have been seen before, if they haven't add them!
+            var map = null;
+
+            await ServerUtils.getMapModel().findOrCreate({
+              where: {
+                name: serverQuery.getMap()
+              }
+            }).then((result) => {
+              map = result[0];
+            });
+
+            // TODO: Determine if the current mission has been seen before, if they haven't add them!
             const serverReportData = {
               ping: serverQuery.getPing(),
               playerCount: serverQuery.getCurrentPlayers()
@@ -36,6 +46,7 @@ module.exports = class ServerReporter {
             const serverReportModel = ServerUtils.getServerReportModel();
             const serverReport = serverReportModel.create(serverReportData).then((record) => {
               record.setServer(server);
+              record.setMap(map);
             });
           }).catch((error) => {
             console.log("Unable to query server (" + server.name + ")");
