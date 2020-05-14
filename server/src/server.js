@@ -5,9 +5,8 @@ const HapiSequelize = require('hapi-sequelizejs');
 const Bcrypt = require('bcrypt');
 const Hapi = require('@hapi/hapi');
 const config = require('./config.js');
-var CronJob = require('cron').CronJob;
-const ServerReporter = require('./lib/ServerReporter.js');
-var serverReporter = new ServerReporter();
+
+let registered = false;
 
 
 // REST API
@@ -33,13 +32,15 @@ const validate = async (request, username, password) => {
   return result;
 };
 
-const init = async () => {
+const server = Hapi.server({
+     port: 3000,
+     host: 'localhost'
+ });
 
-    const server = Hapi.server({
-        port: 3000,
-        host: 'localhost'
-    });
+exports.init = async () => {
+  await server.initialize();
 
+  if (!registered) {
     await server.register(require('@hapi/basic'));
     await server.register([
     {
@@ -62,12 +63,16 @@ const init = async () => {
     var routes = require('./routes');
     server.route(routes);
 
-    await server.start();
-    console.log('Server running on %s', server.info.uri);
+    registered = true;
+  }
 
-    // SCHEDULING OF SERVER CHECKING
-    const job = new CronJob("* * * * *", serverReporter.runReports);
-    job.start();
+  return server;
+};
+
+exports.start = async () => {
+  await server.start();
+  console.log('Server running at: ${server.info.uri}');
+  return server;
 };
 // END OF REST API
 
@@ -76,5 +81,3 @@ process.on('unhandledRejection', (err) => {
     console.log(err);
     process.exit(1);
 });
-
-init();

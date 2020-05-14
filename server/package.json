@@ -14,9 +14,14 @@
     "mysql2": "^2.1.0",
     "sequelize": "^5.21.7"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@hapi/code": "^8.0.1",
+    "@hapi/lab": "^22.0.4",
+    "nyc": "^15.0.1",
+    "sinon": "^9.0.2"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nyc lab -v **/*.test.js -I __coverage__,@@any-promise/REGISTRATION,\"Symbol(process-on-spawn@*:singletonId)\""
   },
   "keywords": [],
   "author": "Edward McKnight",

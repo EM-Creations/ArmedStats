@@ -7,4 +7,4 @@ Server implementation of ArmedStats.
 1. Navigate to `server` and run `npm install`
 2. Modify `server/src/config.example.js` to include your MySQL database and user details
 3. Rename the `server/src/config.example.js` file to `server/src/config.js`
-4. Run the server by typing `node server/src/index.js`
+4. Run the server by typing `node server/src/start.js`

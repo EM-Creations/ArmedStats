@@ -1,6 +1,12 @@
 const fs = require('fs');
 
-let routes = [];
+let routes = [{
+    method: 'GET',
+    path: '/',
+    handler: (request, h) => {
+            return 'ArmedStats server';
+    }
+}];
 
 fs.readdirSync(__dirname)
   .filter(file => ((file != 'index.js') && (file != 'config.js')))
