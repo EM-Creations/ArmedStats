@@ -54,7 +54,6 @@ module.exports = class ServerReporter {
             const serverReportModel = ServerUtils.getServerReportModel();
             const serverReport = await serverReportModel.create(serverReportData).then((record) => {
               record.setServer(server);
-              record.setMap(map);
               record.setMission(mission);
             }).catch((error) => {
                 console.log("Error saving server report..\n" + error);

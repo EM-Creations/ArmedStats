@@ -10,7 +10,6 @@ module.exports = function(sequelize, DataTypes) {
 
     Map.associate = function(models) {
         models.Map.hasMany(models.Mission);
-        models.Map.hasMany(models.ServerReport);
     };
 
     return Map;
