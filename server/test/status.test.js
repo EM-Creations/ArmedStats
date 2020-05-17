@@ -3,15 +3,17 @@
 const Lab = require('@hapi/lab');
 const { expect } = require('@hapi/code');
 const { afterEach, beforeEach, describe, it } = exports.lab = Lab.script();
-const { init } = require('../src/server');
+const ServerInstance = require('../src/server');
+var sinon = require('sinon');
+const serverInstance = new ServerInstance("testsss");
 
-describe('GET /', () => {
+describe('GET / successful', () => {
     let server;
     const expectedResponseCode = 200;
     const expectedContent = 'ArmedStats server';
 
     beforeEach(async () => {
-        server = await init();
+        server = await serverInstance.init();
     });
 
     afterEach(async () => {

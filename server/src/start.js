@@ -1,10 +1,11 @@
-const instance = require('./server.js');
+const ServerInstance = require('./server.js');
 var CronJob = require('cron').CronJob;
 const ServerReporter = require('./lib/ServerReporter.js');
 var serverReporter = new ServerReporter();
 
 const init = async () => {
-  const server = await instance.init();
+  const serverInstance = new ServerInstance("prod");
+  const server = await serverInstance.init();
   await server.start();
 
   // SCHEDULING OF SERVER CHECKING
