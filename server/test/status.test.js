@@ -4,8 +4,7 @@ const Lab = require('@hapi/lab');
 const { expect } = require('@hapi/code');
 const { afterEach, beforeEach, describe, it } = exports.lab = Lab.script();
 const ServerInstance = require('../src/server');
-var sinon = require('sinon');
-const serverInstance = new ServerInstance("testsss");
+const serverInstance = new ServerInstance("test");
 
 describe('GET / successful', () => {
     let server;

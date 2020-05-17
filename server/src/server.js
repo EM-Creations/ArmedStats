@@ -14,7 +14,7 @@ module.exports = class ServerInstance {
 
   constructor(mode) {
     if ("test" == mode.toLowerCase()) {
-      this.config = require('./test/config.js');
+      this.config = require('../test/config.js');
     } else {
       this.config = require('./config.js');
     }

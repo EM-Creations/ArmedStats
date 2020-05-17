@@ -18,10 +18,11 @@
     "@hapi/code": "^8.0.1",
     "@hapi/lab": "^22.0.4",
     "nyc": "^15.0.1",
-    "sinon": "^9.0.2"
+    "sinon": "^9.0.2",
+    "sqlite3": "^4.2.0"
   },
   "scripts": {
-    "test": "nyc lab -v -I __coverage__,@@any-promise/REGISTRATION,\"Symbol(process-on-spawn@*:singletonId)\""
+    "test": "nyc lab --pattern test -v -I __coverage__,@@any-promise/REGISTRATION,\"Symbol(process-on-spawn@*:singletonId)\""
   },
   "keywords": [],
   "author": "Edward McKnight",
