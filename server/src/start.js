@@ -5,8 +5,8 @@ var serverReporter = new ServerReporter();
 
 const init = async () => {
   const serverInstance = new ServerInstance("prod");
-  const server = await serverInstance.init();
-  await server.start();
+  await serverInstance.init();
+  await serverInstance.start();
 
   // SCHEDULING OF SERVER CHECKING
   const job = new CronJob("* * * * *", serverReporter.runReports);

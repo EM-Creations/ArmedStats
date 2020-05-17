@@ -83,7 +83,7 @@ module.exports = class ServerInstance {
 
   async start() {
     await this.server.start();
-    console.log('Server running at: ${server.info.uri}');
+    console.log('Server running at: ' + this.server.info.uri);
     return this.server;
   }
   // END OF REST API
