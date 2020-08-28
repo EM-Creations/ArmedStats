@@ -11,6 +11,6 @@ Server implementation of ArmedStats.
 
 ## HowTo: Run server tests
 1. Navigate to `server` and run `npm install`
-2. Modify `server/src/test/config.example.js` to include your SQLite database and user details
-3. Rename the `server/src/test/config.example.js` file to `server/src/test/config.js`
+2. Modify `server/test/config.example.js` to include your SQLite database and user details
+3. Rename the `server/test/config.example.js` file to `server/test/config.js`
 4. Run the tests by typing `npm test`

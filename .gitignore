@@ -105,6 +105,6 @@ dist
 
 # Custom
 server/src/config.js
-server/src/test/config.js
+server/test/config.js
 server/*.sql
 server/test/*.sqlite
