@@ -7,4 +7,11 @@ Server implementation of ArmedStats.
 1. Navigate to `server` and run `npm install`
 2. Modify `server/src/config.example.js` to include your MySQL database and user details
 3. Rename the `server/src/config.example.js` file to `server/src/config.js`
-4. Run the server by typing `node server/src/index.js`
+4. Run the server by typing `node server/src/start.js`
+
+## HowTo: Run server tests
+**Note:** Due to an issue with running tests in Hapi there are currently minimal server-side tests.
+1. Navigate to `server` and run `npm install`
+2. Modify `server/test/config.example.js` to include your SQLite database and user details
+3. Rename the `server/test/config.example.js` file to `server/test/config.js`
+4. Run the tests by typing `npm test`

@@ -12,7 +12,6 @@ module.exports = function(sequelize, DataTypes) {
     ServerReport.associate = function(models) {
         models.ServerReport.belongsTo(models.Server);
         models.ServerReport.belongsTo(models.Mission);
-        models.ServerReport.belongsTo(models.Map);
     };
 
     return ServerReport;
